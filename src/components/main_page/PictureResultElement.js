@@ -13,6 +13,7 @@ const PictureResultElementStyle = styled.li`
     bottom: 5rem;
     width: 85%;
     height: 64%;
+    pointer-events: none;
   }
   
   p {
@@ -24,15 +25,24 @@ const PictureResultElementStyle = styled.li`
     font-weight: bold;
     position: absolute;
     bottom: 3rem;
+    pointer-events: none;
   }
   
 `
 
 function PictureResultElement( {subclassificationHUN, images}) {
 
+    const [isHovering, setIsHovering] = useState(false);
+
+    const handleMouseHover = () => {
+        setIsHovering(!isHovering);
+    }
+
+
     return (
-        <PictureResultElementStyle>
-            <img src={images[0].url} alt=""/>
+        <PictureResultElementStyle onMouseOver={handleMouseHover}
+                                   onMouseLeave={handleMouseHover}>
+            {isHovering? <img src={images[1].url} alt=""/> : <img src={images[0].url} alt=""/>}
             <p>{subclassificationHUN}</p>
 
 
