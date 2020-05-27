@@ -15,9 +15,10 @@ function App() {
 
             <PictureProvider>
                 <GlobalStyle />
-                    <NavBar/>
+
                     <div className="backGround" />
                     <Router>
+                        <NavBar/>
                         <div className="container">
                             <Route exact path="/" component={MainPage}/>
                             <Route exact path="/picture" component={Picture}/>

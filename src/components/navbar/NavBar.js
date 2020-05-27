@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import {Link} from "react-router-dom"
 
 const NavBarStyle = styled.div`
   .nav {
@@ -127,17 +127,17 @@ function NavBar() {
     return (
         <NavBarStyle>
             <div className="nav">
-                <a className="title-a" href="/">
+                <Link className="title-a" to="/">
                     <h4 className="title">
 
                         Search <i className="fas fa-user-tie"/>This Outfit
                     </h4>
-                </a>
+                </Link>
                 <div className="nav-links">
-                    <a href="/picture">picture</a>
-                    <a href="/">link2</a>
-                    <a href="/">link3</a>
-                    <a href="/">link4</a>
+                    <Link to="/picture">picture</Link>
+                    <Link to="/">link2</Link>
+                    <Link to="/">link3</Link>
+                    <Link to="/">link4</Link>
                 </div>
                 <div className="burger" onClick={navSlide}>
                     <div className="line-1"></div>
