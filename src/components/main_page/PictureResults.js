@@ -66,7 +66,7 @@ const PictureResultsStyle = styled.div`
 
 function PictureResults() {
 
-    const {pictureResults,croppedImageUrl} = useContext(PictureContext)
+    const {pictureResults} = useContext(PictureContext)
 
     let id = 0;
 
@@ -74,7 +74,7 @@ function PictureResults() {
 
     return (
         <PictureResultsStyle>
-                {croppedImageUrl && <img style={{width: "200px", height: "200px"}} src={croppedImageUrl} alt=""/>}
+            {pictureResults.length === 0 && <p className="message-for-pictures" >Add a picture then click on a label to see the products!</p>}
             <div className="pictureResults">
                 <ul>
                     {pictureResults.map(cloth => {
