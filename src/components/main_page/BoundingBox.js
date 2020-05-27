@@ -1,16 +1,18 @@
-import React, {useEffect} from "react";
+import React from "react";
 import styled from "styled-components";
 
 const BoundingBox = styled.div`
     position: absolute;
     border-style: solid;
     border-color: #149df2;
-    inset: ${props => `${props.top}%`} ${props => `${props.right}%`} ${props => `${props.bottom}%`} ${props => `${props.left}%`};
+    top: ${props => `${props.top}%`};
+    right: ${props => `${props.right}%`};
+    bottom: ${props => `${props.bottom}%`};
+    left: ${props => `${props.left}%`};
     z-index: 50;
     opacity: 0.1;
     transition: opacity 0.25s ease;
   
-    
   
     .label-names {
       position: absolute;
