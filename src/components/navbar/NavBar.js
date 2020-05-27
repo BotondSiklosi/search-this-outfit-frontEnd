@@ -134,7 +134,7 @@ function NavBar() {
                     </h4>
                 </a>
                 <div className="nav-links">
-                    <a href="/">link1</a>
+                    <a href="/picture">picture</a>
                     <a href="/">link2</a>
                     <a href="/">link3</a>
                     <a href="/">link4</a>

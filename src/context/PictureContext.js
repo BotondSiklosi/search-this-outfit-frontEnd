@@ -6,7 +6,6 @@ export const PictureProvider= props => {
     const [pictureURL, setPictureURL] = useState(null);
     const [labels, setLabels] = useState([])
     const [pictureResults, setPictureResults] = useState([]);
-    const [crap, setCrap] = useState(null);
     const [croppedImageUrl, setCroppedImageUrl] = useState( null)
 
     return (
@@ -16,7 +15,9 @@ export const PictureProvider= props => {
             pictureURL,
             setPictureURL,
             pictureResults,
-            setPictureResults
+            setPictureResults,
+            croppedImageUrl,
+            setCroppedImageUrl
         }}>
             {props.children}
         </PictureContext.Provider>

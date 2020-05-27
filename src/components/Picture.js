@@ -1,8 +1,14 @@
-import React from "react";
+import React, {useContext} from "react";
+import {PictureContext} from "../context/PictureContext";
 
 function Picture() {
+
+    const {croppedImageUrl} = useContext(PictureContext);
+
     return (
-        <h1>hey</h1>
+        <div>
+            {croppedImageUrl !== null && <img style={{width: "200px", height: "200px"}} src={croppedImageUrl} alt=""/>}
+        </div>
     )
 }
 
