@@ -6,6 +6,8 @@ export const PictureProvider= props => {
     const [pictureURL, setPictureURL] = useState(null);
     const [labels, setLabels] = useState([])
     const [pictureResults, setPictureResults] = useState([]);
+    const [crap, setCrap] = useState(null);
+    const [croppedImageUrl, setCroppedImageUrl] = useState( null)
 
     return (
         <PictureContext.Provider value={{
