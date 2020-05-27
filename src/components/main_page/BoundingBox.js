@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
 
 const BoundingBox = styled.div`
@@ -12,7 +12,7 @@ const BoundingBox = styled.div`
   
     
   
-    div {
+    .label-names {
       position: absolute;
       top: 0;
       left: -1%;
@@ -60,15 +60,20 @@ function BoundingBoxes({boundingBox, id, names}) {
 
     return (        // `label-${id}`
         <BoundingBox top={top}
+                     data-top={top}
                      right={right}
+                     data-right={right}
                      left={left}
+                     data-left={left}
                      bottom={bottom}
+                     data-bottom={bottom}
                      data-label={id}
+                     data-name={names[0]}
                      className={'bounding-box dim'}
                      onMouseOver={addClass}
                      onMouseOut={removeClass}
         >
-            <div data-label={id}>{names[0]}</div>
+            <div data-label={id} className="label-names">{names[0]}</div>
         </BoundingBox>
     )
 }

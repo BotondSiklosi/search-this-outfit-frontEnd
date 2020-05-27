@@ -1,7 +1,5 @@
-import React, {useContext, useState} from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
-import {PictureContext} from "context/PictureContext";
-import axios from "axios";
 
 const PictureResultElementStyle = styled.li`
   position: relative;

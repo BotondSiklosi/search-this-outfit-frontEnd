@@ -143,8 +143,8 @@ function InputField() {
                 {!isDragActive && <p>Drag 'n' drop some files here,<br/> or click to select files</p>}
                 {isDragAccept && <p style={{color: "#078dcd"}}>Drop here!</p>}
                 {isDragReject && <p style={{color: "#ff1744"}} >You can't upload this type!</p>}
-                {pictureURL !== null && <img className="current-image" src={pictureURL} alt=""/>}
-                {pictureURL !==null && labels.map( (labels) => {
+                {pictureURL && <img className="current-image" src={pictureURL} alt=""/>}
+                {pictureURL && labels.map( (labels) => {
                     return <BoundingBoxes key={id++} {...labels} id={id}/>
                 })}
             </Container>

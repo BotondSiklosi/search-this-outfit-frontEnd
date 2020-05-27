@@ -2,7 +2,6 @@ import React, {useContext} from "react";
 import styled from "styled-components";
 import {PictureContext} from "context/PictureContext";
 import PictureResultElement from "./PictureResultElement";
-import BoundingBoxes from "./BoundingBox";
 
 const PictureResultsStyle = styled.div`
      grid-area: pictures;
@@ -67,7 +66,7 @@ const PictureResultsStyle = styled.div`
 
 function PictureResults() {
 
-    const {pictureResults} = useContext(PictureContext)
+    const {pictureResults,croppedImageUrl} = useContext(PictureContext)
 
     let id = 0;
 
@@ -75,7 +74,7 @@ function PictureResults() {
 
     return (
         <PictureResultsStyle>
-            {pictureResults.length === 0 && <p className="message-for-pictures" >Add a picture then click on a label to see the products!</p>}
+                {croppedImageUrl && <img style={{width: "200px", height: "200px"}} src={croppedImageUrl} alt=""/>}
             <div className="pictureResults">
                 <ul>
                     {pictureResults.map(cloth => {
