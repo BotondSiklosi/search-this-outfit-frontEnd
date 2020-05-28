@@ -1,8 +1,10 @@
-import React from "react";
-import InputField from "./InputFile";
+import React, {useContext} from "react";
+import InputField from "./input-file/InputFile";
 import SideBar from "./SideBar";
-import PictureResults from "./PictureResults";
+import PictureResults from "./picture-results/PictureResults";
 import styled from "styled-components";
+import PicturePopup from "./picture-results/PicturePopup";
+import {PictureContext} from "../../context/PictureContext";
 
 
 const MainPageStyle = styled.div`
@@ -31,6 +33,7 @@ const MainPageStyle = styled.div`
 
 function MainPage() {
 
+    const {popup} = useContext(PictureContext);
 
 
     return (
@@ -39,6 +42,7 @@ function MainPage() {
                 <InputField/>
                 <SideBar/>
                 <PictureResults/>
+                { popup && <PicturePopup /> }
             </div>
         </MainPageStyle>
     )
