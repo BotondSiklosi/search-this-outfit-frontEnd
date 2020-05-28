@@ -9,7 +9,7 @@ const BoundingBox = styled.div`
     right: ${props => `${props.right}%`};
     bottom: ${props => `${props.bottom}%`};
     left: ${props => `${props.left}%`};
-    z-index: 50;
+    z-index: 30;
     opacity: 0.1;
     transition: opacity 0.25s ease;
   
