@@ -33,7 +33,7 @@ const PicturePopupStyle = styled.div`
             z-index: 72;
             width: 750px;
             height: 500px;
-            background-color: #ffffff;
+            background-color: #dcd9d9;
             border-radius: 0.4rem;
             display: grid;
             grid-template-columns: 46% 54%;
