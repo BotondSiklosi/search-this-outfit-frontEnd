@@ -24,10 +24,10 @@ describe('NavBar.js', () => {
 });
 
 
-describe('MainPage.js', () => {
-    it('Renders MainPage correctly', () => {
-        const component = shallow(<MainPage />);
-
-        expect(component).toMatchSnapshot();
-    });
-});
+// describe('MainPage.js', () => {
+//     it('Renders MainPage correctly', () => {
+//         const component = shallow(<MainPage />);
+//
+//         expect(component).toMatchSnapshot();
+//     });
+// });
