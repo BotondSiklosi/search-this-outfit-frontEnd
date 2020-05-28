@@ -2,6 +2,7 @@ import React, {useContext} from "react";
 import styled from "styled-components";
 import {PictureContext} from "context/PictureContext";
 import PictureResultElement from "./PictureResultElement";
+import PicturePopup from "./PicturePopup";
 
 const PictureResultsStyle = styled.div`
      grid-area: pictures;
@@ -45,7 +46,7 @@ const PictureResultsStyle = styled.div`
         height: 400px;
         color: black;
         border-radius: 0.5rem;
-        background-color: #d2c9c9;
+        background-color: #d7d1d1;
         justify-content: center;
         margin: 3rem;
         align-items: center;
@@ -58,7 +59,7 @@ const PictureResultsStyle = styled.div`
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
         cursor: pointer;
         
-        p {
+        .picture-element-p {
         color: bisque;
         }
     }

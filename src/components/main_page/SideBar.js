@@ -25,6 +25,8 @@ const SideBarStyle = styled.div`
         margin: 5px;
         transition: background-color .24s ease, border-color .25s ease;
         border-radius: 1.5rem;
+        font-size: 2rem;
+        font-family: sans-serif;
     }
 
     .sidebar button:hover {
