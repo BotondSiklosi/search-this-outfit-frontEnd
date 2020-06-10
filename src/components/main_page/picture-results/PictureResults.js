@@ -18,8 +18,14 @@ const PictureResultsStyle = styled.div`
 
     .pictureResults ul {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
         justify-items: center;
+    }
+    
+    @media screen and (max-width: 1570px) {
+        .pictureResults ul {
+            grid-template-columns: repeat(4, 1fr);
+        }
     }
     
     @media screen and (max-width: 1235px) {
@@ -60,7 +66,7 @@ const PictureResultsStyle = styled.div`
         cursor: pointer;
         
         .picture-element-p {
-        color: bisque;
+        color: #dcb78a;
         }
     }
 `;

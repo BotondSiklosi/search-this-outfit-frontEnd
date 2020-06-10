@@ -36,6 +36,8 @@ const Container = styled.div`
   margin: 5rem;
   height: 400px;
   width: 400px;
+  max-width: 400px;
+  max-height: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,10 +60,12 @@ const Container = styled.div`
   
   @media screen and (max-width: 1024px) { 
      width: 300px;
+     height: 300px;
   }
   
   @media screen and (max-width: 500px) { 
      width: 250px;
+     height: 250px;
   }
   
   p {

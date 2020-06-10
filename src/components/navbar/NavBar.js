@@ -5,7 +5,7 @@ import {Link} from "react-router-dom"
 const NavBarStyle = styled.div`
   .nav {
     background: rgb(111, 110, 110);
-    background: linear-gradient(180deg, rgb(172, 167, 167) 0%, rgba(220, 217, 217, 0.35) 100%);
+    background: linear-gradient(180deg,rgb(165,158,158) 0%,rgba(210,207,207,0.46) 100%);
     position: fixed;
     top: 0;
     left: 0;
@@ -51,19 +51,26 @@ const NavBarStyle = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     width: 35%;
+    height: 40px;
+    align-items: center;
 }
 
 .nav-links a {
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     font-weight: bold;
     font-size: 1.5rem;
     margin-right: 5rem;
+    transition: background-color ease .24s, color ease .24s;
+
 }
 
 .nav-links a:hover {
-    background-color: rgba(220, 217, 217, 0.35);
+    background-color: #323131;
+    color: white;
+    width: 80%;
+    height: 40px;
 }
 
 .burger {
@@ -90,7 +97,7 @@ const NavBarStyle = styled.div`
         right: -250px;
         height: 92vh;
         top: 8vh;
-        background-color: rgba(220, 217, 217, 0.5);
+        background: linear-gradient(180deg,rgba(159,159,159,0.59) 100%, rgba(210,207,207,0.52) 0%);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -99,6 +106,21 @@ const NavBarStyle = styled.div`
         transition: right 0.5s ease-in-out, opacity 0.4s ease 0.2s;
         width: 250px;
         opacity: 0;
+    }
+    
+    .nav-links a {
+        width: 100%;
+        height: 50px;
+        margin-right: 0;
+        align-items: center;
+        font-size: 2rem;
+    }
+    
+    .nav-links a:hover {
+        background-color: #1c1b1b;
+        width: 100%;
+        height: 50px;
+        color: white;
     }
 
     .burger {
@@ -134,10 +156,10 @@ function NavBar() {
                     </h4>
                 </Link>
                 <div className="nav-links">
-                    <Link to="/picture">picture</Link>
-                    <Link to="/">link2</Link>
-                    <Link to="/">link3</Link>
-                    <Link to="/">link4</Link>
+                    <Link to="/">Home</Link>
+                    <Link to="/search">Search</Link>
+                    <Link to="/about">About</Link>
+                    <Link to="/contacts">Contacts</Link>
                 </div>
                 <div className="burger" onClick={navSlide}>
                     <div className="line-1"></div>

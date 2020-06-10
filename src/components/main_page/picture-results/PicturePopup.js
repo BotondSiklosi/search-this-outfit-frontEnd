@@ -25,7 +25,7 @@ const PicturePopupStyle = styled.div`
         
         opacity: 0.7;
         display: flex;
-        background-color: rgb(60, 55, 55);
+        background-color: rgb(45, 42, 42);
         }
         
         .popups {
@@ -33,7 +33,7 @@ const PicturePopupStyle = styled.div`
             z-index: 72;
             width: 750px;
             height: 500px;
-            background-color: #dcd9d9;
+            background-color: #e8e5e5;
             border-radius: 0.4rem;
             display: grid;
             grid-template-columns: 46% 54%;
