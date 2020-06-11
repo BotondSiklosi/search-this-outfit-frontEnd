@@ -5,14 +5,16 @@ const BoundingBox = styled.div`
     position: absolute;
     border-style: solid;
     border-color: #149df2;
-    inset: ${props => `${props.top}%`} ${props => `${props.right}%`} ${props => `${props.bottom}%`} ${props => `${props.left}%`};
-    z-index: 50;
+    top: ${props => `${props.top}%`};
+    right: ${props => `${props.right}%`};
+    bottom: ${props => `${props.bottom}%`};
+    left: ${props => `${props.left}%`};
+    z-index: 30;
     opacity: 0.1;
     transition: opacity 0.25s ease;
   
-    
   
-    div {
+    .label-names {
       position: absolute;
       top: 0;
       left: -1%;
@@ -60,15 +62,20 @@ function BoundingBoxes({boundingBox, id, names}) {
 
     return (        // `label-${id}`
         <BoundingBox top={top}
+                     data-top={top}
                      right={right}
+                     data-right={right}
                      left={left}
+                     data-left={left}
                      bottom={bottom}
+                     data-bottom={bottom}
                      data-label={id}
+                     data-name={names[0]}
                      className={'bounding-box dim'}
                      onMouseOver={addClass}
                      onMouseOut={removeClass}
         >
-            <div data-label={id}>{names[0]}</div>
+            <div data-label={id} className="label-names">{names[0]}</div>
         </BoundingBox>
     )
 }

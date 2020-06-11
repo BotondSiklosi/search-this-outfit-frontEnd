@@ -1,12 +1,14 @@
 import React, {useContext} from "react";
 import styled from "styled-components";
-import {PictureContext} from "../../context/PictureContext";
+import {PictureContext} from "context/PictureContext";
+import PictureResultElement from "./PictureResultElement";
+import PicturePopup from "./PicturePopup";
 
 const PictureResultsStyle = styled.div`
      grid-area: pictures;
      
 
-    p {
+    .message-for-pictures {
       color: #ddd0aa;
       display: flex;
       justify-content: center;
@@ -16,8 +18,14 @@ const PictureResultsStyle = styled.div`
 
     .pictureResults ul {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
         justify-items: center;
+    }
+    
+    @media screen and (max-width: 1570px) {
+        .pictureResults ul {
+            grid-template-columns: repeat(4, 1fr);
+        }
     }
     
     @media screen and (max-width: 1235px) {
@@ -44,7 +52,7 @@ const PictureResultsStyle = styled.div`
         height: 400px;
         color: black;
         border-radius: 0.5rem;
-        background-color: #d2c9c9;
+        background-color: #d7d1d1;
         justify-content: center;
         margin: 3rem;
         align-items: center;
@@ -55,12 +63,21 @@ const PictureResultsStyle = styled.div`
     .pictureResults li:hover {
         background-color: #54555f;
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
+        cursor: pointer;
+        
+        .picture-element-p {
+        color: #dcb78a;
+        }
     }
 `;
 
 function PictureResults() {
 
     const {pictureResults} = useContext(PictureContext)
+
+    let id = 0;
+
+
 
     return (
         <PictureResultsStyle>
@@ -69,7 +86,7 @@ function PictureResults() {
                 <ul>
                     {pictureResults.map(cloth => {
                         console.log(cloth)
-                        return <li>{cloth.id}</li>
+                        return <PictureResultElement key={id++} {...cloth} id={id} />
 
                     } )}
                 </ul>

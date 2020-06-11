@@ -18,12 +18,15 @@ const SideBarStyle = styled.div`
     }
 
     .sidebar button {
-        background-color: #d2c9c9;
-        border-color: #a39d9d;
+        background-color: #FFF;
+        border-color: #b8e2e2;
         height: 40px;
         width: 150px;
         margin: 5px;
         transition: background-color .24s ease, border-color .25s ease;
+        border-radius: 1.5rem;
+        font-size: 2rem;
+        font-family: sans-serif;
     }
 
     .sidebar button:hover {
@@ -37,8 +40,14 @@ const SideBarStyle = styled.div`
 function SideBar() {
 
 
-    const {labels, setPictureResults} = useContext(PictureContext)
+    const {labels,
+        setPictureResults,
+        pictureURL,
+        setCroppedImageUrl
+    } = useContext(PictureContext)
     let id = 0;
+
+
 
     const addClass = event => {
         let boundingBoxes = document.querySelectorAll('.bounding-box');
@@ -61,15 +70,58 @@ function SideBar() {
         })
     }
 
+
+    const cutNewImage = event => {
+        let boundingBoxes = document.querySelectorAll('.bounding-box');
+        let newImg = new Image();
+        newImg.src = pictureURL;
+        let imgWidth = newImg.width;
+        let imgHeight = newImg.height;
+        let canvas = document.createElement('CANVAS');
+        let ctx = canvas.getContext('2d');
+        let y = 0;
+        let width = 0;
+        let height = 0;
+        let x = 0;
+
+        boundingBoxes.forEach(box => {
+            if (box.getAttribute('data-name') === event.target.textContent) {
+                y = box.getAttribute('data-top');
+                height = imgHeight / 100 * (100 - y - box.getAttribute('data-bottom'));
+                x = box.getAttribute('data-left');
+                width = imgWidth / 100 * (100 - x - box.getAttribute('data-right'));
+            }
+        })
+
+        x = imgWidth / 100 * x;
+        y = imgHeight / 100 * y;
+
+        canvas.width = imgWidth;
+        canvas.height = imgHeight;
+
+        ctx.drawImage(newImg,
+             x, y, width, height,
+            0, 0, width, height);
+
+        return canvas.toDataURL();
+    }
+
+
     const fileSelectedHandler = event => {
         event.preventDefault();
-        const url = "http://localhost:8080/result?labelName=";
-        axios.post(url + event.target.textContent)
+        const imgUrl = cutNewImage(event);
+        setCroppedImageUrl(imgUrl)
+        let labelName = event.target.textContent;
+        const url = "http://localhost:8080/result";
+        axios.post(url, { itemName: labelName, image: { base64: imgUrl.split(',')[1] }})
             .then(response => setPictureResults(response.data))
             .catch(reason => {
                 console.log("mimanó " + reason)
             })
     }
+
+
+
 
     return (
         <SideBarStyle>
