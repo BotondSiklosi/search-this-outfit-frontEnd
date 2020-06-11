@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route} from "react-router-dom"
-import Picture from "./components/Picture";
 import MainPage from "./components/main_page/MainPage";
 import {PictureProvider} from "./context/PictureContext";
 import NavBar from "./components/navbar/NavBar";
 import GlobalStyle from "./components/style-components/styled/GlobalStyle";
+import Home from "./components/home/Home";
+import About from "./components/about/About";
+import Contacts from "./components/contacts/Contacts";
 
 
 
@@ -20,8 +22,10 @@ function App() {
                     <Router>
                         <NavBar/>
                         <div className="container">
-                            <Route exact path="/" component={MainPage}/>
-                            <Route exact path="/picture" component={Picture}/>
+                            <Route exact path="/" component={Home}/>
+                            <Route exact path="/search" component={MainPage}/>
+                            <Route exact path="/about" component={About}/>
+                            <Route exact path="/contacts" component={Contacts}/>
                         </div>
                     </Router>
             </PictureProvider>

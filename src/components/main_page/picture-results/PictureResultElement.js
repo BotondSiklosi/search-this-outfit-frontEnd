@@ -26,11 +26,12 @@ const PictureResultElementStyle = styled.li`
     position: absolute;
     bottom: 3rem;
     pointer-events: none;
+    font-family: Georgia, serif;
   }
   
 `
 
-function PictureResultElement( {subclassificationHUN, images, id, stockStatusENG, genderHUN, fashionDaysProductName, mainProductLink, priceHUF}) {
+function PictureResultElement( {images, id, stockStatusENG, genderHUN, fashionDaysProductName, mainProductLink, priceHUF, brand}) {
 
     const [isHovering, setIsHovering] = useState(false);
     const {setPopup} = useContext(PictureContext);
@@ -57,7 +58,7 @@ function PictureResultElement( {subclassificationHUN, images, id, stockStatusENG
                                    onMouseOver={handleMouseHover}
                                    onMouseLeave={handleMouseHover}>
             {isHovering? <img className="picture-element-img" src={images[1].url} alt=""/> : <img className="picture-element-img" src={images[0].url} alt=""/>}
-            <p className="picture-element-p">{subclassificationHUN}</p>
+            <p className="picture-element-p">{brand}</p>
 
         </PictureResultElementStyle>
 
