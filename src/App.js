@@ -13,7 +13,7 @@ import Contacts from "./components/contacts/Contacts";
 
 function App() {
     return (
-        <div className="App" data-testid="app">
+        <div className="App">
 
             <PictureProvider>
                 <GlobalStyle />
