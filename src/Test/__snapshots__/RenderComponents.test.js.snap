@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App.js Render App correctly 1`] = `ShallowWrapper {}`;
+
+exports[`NavBar.js Renders NavBar correctly 1`] = `ShallowWrapper {}`;
